@@ -19,3 +19,6 @@
   * Notice
   * To-do
   * Web Chat
+  
+* 참고  
+  https://www.notion.so/JavaRam-83f31a4907bb45a4a28e7e35ea7ef37a
