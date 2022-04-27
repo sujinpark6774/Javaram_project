@@ -8,7 +8,7 @@
   * Local : 
     * Front-end : Vue 3.0  
         → Web-Socket
-    * Back-end : Spring boot-Maven
+    * Back-end : Spring boot-Maven (Eclipse)
   * Cloud
     * Datebase : MariaDB(MySQL)
     * Mail-server
