@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.test.example.Mapper.UserMapper"> 
+
+	<select id="selectUserList" resultType="com.test.example.dto.UserDTO"> 
+		<![CDATA[
+     	SELECT * FROM User_Table
+        ]]>		
+	</select>
+
+	<select id="selectOneUserList" resultType="com.test.example.dto.UserDTO"> 
+		<![CDATA[
+     	SELECT User_ID, User_Name, User_EMAIL, Access, User_img FROM User_Table where User_ID = #{user_id}
+        ]]>		
+	</select>
+
+	<insert id="InsertUserInfo">
+		<![CDATA[
+     	INSERT INTO User_Table(User_ID, User_Name, User_PW, User_EMAIL, Access) VALUES(#{user_id}, #{user_name}, #{user_pw}, #{user_email}, False)
+        ]]>		
+	</insert>
+	
+	<select id="FindID" resultType="String"> 
+		<![CDATA[
+     	SELECT User_ID FROM User_Table where User_Name = #{user_name} and User_email = #{user_email}
+        ]]>		
+	</select>
+	
+	<select id="FindPW" resultType="String"> 
+		<![CDATA[
+     	SELECT User_PW FROM User_Table where User_ID = #{user_id} and User_Name = #{user_name} and User_email = #{user_email}
+        ]]>		
+	</select>
+	
+	<update id="ChangePW">
+		<![CDATA[
+     	UPDATE User_Table 
+     	SET User_PW = #{user_pw}
+     	WHERE User_ID = #{user_id}
+        ]]>	
+	</update>
+	
+	<update id="ChangeEMAIL">
+		<![CDATA[
+     	UPDATE User_Table 
+     	SET User_EMAIL = #{user_email}
+     	WHERE User_ID = #{user_id}
+        ]]>	
+	</update>
+	
+</mapper>

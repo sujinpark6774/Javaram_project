@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.test.example.Mapper.NoticeMapper"> 
+
+	<select id="selectNoticeList" resultType="com.test.example.dto.NoticeDTO"> 
+		<![CDATA[
+     	SELECT * FROM Notice order by 1 DESC
+        ]]>		
+	</select>
+
+	<select id="selectNoticeDetail" resultType="com.test.example.dto.NoticeDTO"> 
+		<![CDATA[
+     	SELECT * FROM Notice where Notice_id = #{id}
+        ]]>		
+	</select>
+
+	<insert id="noticeAddCont"> 
+		<![CDATA[
+     	INSERT INTO Notice(User_ID, Notice_Title, Notice_Date, Notice_Content) VALUES(#{user_id}, #{notice_title}, #{notice_date}, #{notice_content})
+        ]]>		
+	</insert>
+
+	<delete id="noticeDeleteCont"> 
+		<![CDATA[
+     	DELETE FROM Notice WHERE Notice_ID = #{notice_id}
+        ]]>		
+	</delete>
+
+	<update id="noticeUpdateCont"> 
+		<![CDATA[
+     	UPDATE Notice 
+     	SET Notice_title = #{notice_title}, Notice_Content = #{notice_content}
+     	WHERE Notice_ID = #{notice_id}
+        ]]>		
+	</update>
+		
+</mapper>
